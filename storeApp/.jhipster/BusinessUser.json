@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "storeGroup",
+            "otherEntityName": "storeGroup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "user"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "store",
+            "otherEntityName": "store",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170523115353",
+    "entityTableName": "business_user",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "stores",
+            "otherEntityName": "store",
+            "otherEntityRelationshipName": "storeGroup"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "organization",
+            "otherEntityName": "organization",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "businessUser",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "storeGroup"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "siteUrl",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170523115355",
+    "entityTableName": "store_group",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

@@ -1,0 +1,96 @@
+#direction: right
+enum Diet {
+	VEG,
+    NON_VEG,
+    EGG
+}
+
+entity Organization {
+	name String required
+    owner String
+}
+
+entity BusinessUser {}
+entity Customer {}
+
+entity StoreGroup {
+	name String required
+    siteUrl String
+}
+
+entity Store {
+	code String required
+	name String required
+	timings String
+	website String
+	email String
+	phoneNumber String
+	mobileNumber String
+	faxNumber String
+	siteUrl String
+}
+
+entity DiningTable {
+	number Integer required
+    code String required
+}
+
+entity TableQR {
+	code String required
+}
+
+entity Location {
+	address1 String required
+    address2 String
+    address3 String
+    city String required
+    state String
+    country String
+    latitude String
+    longitude String
+}
+
+entity Menu {
+	name String required
+}
+
+entity MenuCategory {
+	name String required
+}
+
+entity MenuItem {
+	name String required
+    price Double required
+    preparationTime Integer required
+    ingredient String
+    imageUrl String
+    description String
+    diet Diet
+}
+
+relationship OneToOne {
+    // BusinessUser{user} to User,
+	Store{location} to Location,
+    BusinessUser{storeGroup} to StoreGroup{user},
+    TableQR{table(code)} to DiningTable,
+    TableQR{store(code)} to Store
+}
+
+relationship OneToMany {
+	StoreGroup{stores(name)} to Store{storeGroup},
+    Store{tables} to DiningTable,
+	Menu{categories(name)} to MenuCategory{menu(name)},
+	MenuCategory{items(name)} to MenuItem{category(name)}
+}
+
+relationship ManyToOne {
+    StoreGroup{organization} to Organization,
+	Store{organization} to Organization,
+    BusinessUser{store(name)} to Store,
+    Menu{store} to Store{menus(name)}
+}
+
+paginate * with pagination
+dto * with mapstruct
+service all with serviceImpl
+

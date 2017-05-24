@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity BusinessUser.
+    -->
+    <changeSet id="20170523115353-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="store_group_id"
+                                 baseTableName="business_user"
+                                 constraintName="fk_business_user_store_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="store_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="store_id"
+                                 baseTableName="business_user"
+                                 constraintName="fk_business_user_store_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="store"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity TableQR.
+    -->
+    <changeSet id="20170523115358-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="table_id"
+                                 baseTableName="table_qr"
+                                 constraintName="fk_tableqr_table_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dining_table"/>
+
+        <addForeignKeyConstraint baseColumnNames="store_id"
+                                 baseTableName="table_qr"
+                                 constraintName="fk_tableqr_store_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="store"/>
+
+    </changeSet>
+</databaseChangeLog>
